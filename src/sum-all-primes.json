@@ -1,0 +1,19 @@
+{"index.js":"
+function sumPrimes(num) 
+{  if(num==2) return 2;  
+   let prime =[];  
+   prime.push(2);  let i=3;  
+   while(i<=num){    
+   let f=1;    
+   prime.forEach((item)=>{if(i%item == 0)
+   {        f=0;      }    
+   });    
+   if(f)
+   {
+		prime.push(i);
+	}    
+		i++;  
+	}  
+	return prime.reduce((a,b)=>a+b);}sumPrimes(10);"
+	
+}

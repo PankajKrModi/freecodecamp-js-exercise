@@ -1,0 +1,59 @@
+function smallestCommons(arr) { 
+ arr.sort((a,b)=>a-b);   // sorting in ascending order
+ let myMap = new Map();  
+ let start =arr[0];  
+ while(start<=arr[1]){    
+ let currentMap =primes(start);     
+ for(let [k,v] of currentMap){     
+ if(myMap.has(k)){       
+	if( myMap.get(k)<v)        
+	myMap.set(k,v);       
+	}else{         
+	myMap.set(k,v);    
+    }     
+  }      
+  start++; 
+  }
+  let res =1;
+  for(let [k,v] of myMap){  
+  //console.log(k,v);  
+  res *= Math.pow(k,v);
+  }
+  console.log(res);
+  return res;   
+  function primes(a){    
+  let i=2;    
+  let aa=[];   
+  while(a!=1){  
+	let count=0;      
+	while(a%i==0){     
+		a=a/i;        
+		count++;      
+		}       
+		if(count!=0)     
+		aa.push([i,count]);    
+		i++;    }    
+		return aa; 
+		}    
+  function primeFactor(a){ 
+	let sieve =new Array(a);  
+    sieve.fill(0,a,false);    
+	let prime1 = [];     
+	for(let i=2; i <=Math.sqrt(a); i){   
+	if(!sieve[i]){         
+		if(a%i == 0)         
+		prime1.push(i);      
+		for(let j=i<<1; j<=a; j+=i){      
+			sieve[i] = true;        
+			}        
+		}     
+	}      
+	if(prime1.length ==0){    
+		prime1.push(a);    
+	}        
+	return prime1;    
+   }      
+  }
+  
+  //smallestCommons([1,5]);
+  

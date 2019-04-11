@@ -1,0 +1,21 @@
+function telephoneCheck(str) {  
+  if(str[0]=='-')   
+		return false;  
+  if(/[^\\d\\(\\)\\s\\-]/.test(str)== true){           
+	return false;      
+  }else if(/\\(|\\)/.test(str)==true && /\\(\\d\\d\\d\\)/.test(str)==false){ 
+    return false;
+  }  
+  let onlyDigit = str.match(/[0-9]/g);  
+  console.log(onlyDigit.length);     
+  if(onlyDigit.length<10 || onlyDigit.length>11){
+	return false;    
+  }
+  if(onlyDigit.length==11 && onlyDigit[0]!=1){
+  console.log(false);
+  return false;
+  }
+  return true;
+   } 
+   
+   // return true;telephoneCheck(\"1 555-555-5555\");"}

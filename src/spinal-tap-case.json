@@ -1,0 +1,12 @@
+
+function spinalCase(str) 
+{  
+let arr_str = str.match(/[A-Z][a-z]+|[A-Z]+|[a-z]+/g);  //
+arr_str.forEach((d)=>console.log(d)); 
+ return arr_str.join('-').toLowerCase();
+ }
+ 
+ spinalCase('AllThe-small Things');
+ spinalCase("AllThe-small Things");
+ spinalCase("Teletubbies say Eh-oh");
+ spinalCase("The_Andy_Griffith_Show");

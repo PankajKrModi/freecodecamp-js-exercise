@@ -1,0 +1,17 @@
+function binaryAgent(str) {
+
+  let arr = str.split(' ');
+  let resstr="";
+  //console.log(str);\n  
+  arr.forEach((d)=>
+  { 
+     // console.log(String.fromCharCode(parseInt(d,2)));
+	 resstr+= String.fromCharCode(parseInt(d,2));
+	 }
+ );
+	 console.log(resstr);
+	 return resstr;
+}
+
+//binaryAgent("1000001");
+	 
